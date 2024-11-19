@@ -2,8 +2,9 @@
 const messageEl = document.getElementById("message");
 const sendBtn = document.getElementById("sendBtn");
 const socket = new WebSocket("ws://localhost:3000");
+const clearBtn = document.getElementById("clearBtn");
 
-function log(text, type = 'normal') {
+const log = (text, type = 'normal') => {
     const p = document.createElement('p');
     p.textContent = text;
     p.style.color = type === 'error' ? 'red' : 'black';
@@ -53,3 +54,21 @@ sendBtn.addEventListener('click', () => {
         log(`Failed to send message: ${error}`, 'error');
     }
 });
+
+const clearContent = () => {
+    const messageElement = document.getElementById("message");
+    messageElement.innerHTML = "";
+
+    return "Socket connected";
+};
+
+clearBtn.addEventListener('click', () => {
+    try {
+        const clear = clearContent()
+        log(clear)
+     
+    } catch (error) {
+        log(`Failed to send message: ${error}`, 'error');
+    }
+})
+
