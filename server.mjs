@@ -86,7 +86,7 @@ class WebSocketServer {
       this.handleClientClose(socket);
     }
   }
-
+    
   unmask(payload, maskKey) {
     const unmaskedPayload = Buffer.alloc(payload.length);
     for (let i = 0; i < payload.length; i++) {
