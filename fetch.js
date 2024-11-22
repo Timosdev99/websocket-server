@@ -61,7 +61,7 @@ const clearContent = () => {
 
     return "Socket connected";
 };
-
+   
 clearBtn.addEventListener('click', () => {
     try {
         const clear = clearContent()
